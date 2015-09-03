@@ -2,9 +2,9 @@ var date = document.getElementById('date');
 var info = document.getElementById('info');
 
 // Show the data!
-date.textContent = 'Today is ' + Calender.monthName() + ' ' + Calender.dayName();
+date.textContent = 'Today is ' + today.getMonthName() + ' ' + today.getName();
 
-if (Calender.foolsDay) {
+if (today.foolsDay) {
 	info.textContent += 'Two odd days in a row, Happy Fool’s day! ';
 	info.textContent += 'You don’t need to move your car ';
 }
