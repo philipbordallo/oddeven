@@ -1,4 +1,3 @@
-// var today = new Date('2/1/2016 18:02:00');
 var today = new Date();
 var yesterday = new Date(today.getTime());
 

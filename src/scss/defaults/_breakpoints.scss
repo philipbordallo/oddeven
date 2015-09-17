@@ -1,0 +1,38 @@
+@mixin breakpoint($size) {
+
+	@if $size == "phone" {
+		@media (max-width: 767px) {
+			@content;
+		}
+	}
+
+	@else if $size == "tablet" {
+		@media (min-width: 768px) and (max-width: 1024px) {
+			@content;
+		}
+	}
+
+	@else if $size == "handheld" {
+		@media (max-width: 1024px) {
+			@content;
+		}
+	}
+
+	@else if $size == "container" {
+		@media (max-width: 960px) {
+			@content;
+		}
+	}
+
+	@else if $size == "large" {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	}
+
+	@elseif $size == "retina" {
+		@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and ( min-device-pixel-ratio: 2), only screen and ( min-resolution: 192dpi), only screen and ( min-resolution: 2dppx) {
+			@content;
+		}
+	}
+}

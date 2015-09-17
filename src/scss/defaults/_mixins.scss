@@ -1,0 +1,4 @@
+@function rem($fontsize) {
+	$size: ($fontsize / 1px) * 1rem;
+	@return ($size/ 16);
+}
