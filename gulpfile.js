@@ -41,6 +41,7 @@
 		]
 	};
 	var jsInput = [
+		'src/js/error.js',
 		'src/js/parking.js',
 		'src/js/visual.js'
 	];
