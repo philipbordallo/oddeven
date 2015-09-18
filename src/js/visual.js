@@ -1,18 +1,20 @@
 var body = document.body;
+var timeFrame = document.getElementById('time-frame');
 var currentDate = document.getElementById('current-date');
 var parkingSide = document.getElementById('parking-side');
 
-currentDate.textContent = today.monthName() + ' ' + today.dayName();
+timeFrame.textContent = today.relationToSix();
+currentDate.textContent = today.getMonthName() + ' ' + today.getName();
 
 if (today.foolsDay) {
 	body.classList.add('fools-day');
 }
 
-if (Park.onOdd) {
+if (parking.onOdd) {
 	body.classList.add('odd-side');
 	parkingSide.textContent = 'odd';
 }
-else if (Park.onEven) {
+else if (parking.onEven) {
 	body.classList.add('even-side');
 	parkingSide.textContent = 'even';
 }
