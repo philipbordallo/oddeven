@@ -2,9 +2,9 @@ var body = document.body;
 var currentDate = document.getElementById('current-date');
 var parkingSide = document.getElementById('parking-side');
 
-currentDate.textContent = Calender.monthName() + ' ' + Calender.dayName();
+currentDate.textContent = today.monthName() + ' ' + today.dayName();
 
-if (Calender.foolsDay) {
+if (today.foolsDay) {
 	body.classList.add('fools-day');
 }
 
