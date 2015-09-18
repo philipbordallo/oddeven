@@ -1,0 +1,58 @@
+#content {
+	overflow-x: hidden;
+	position: relative;
+	min-height: 100%;
+	font-family: 'Rubik';
+	margin: 0 auto;
+}
+
+#main {
+	padding: 0 35px;
+	color: #FFFFFF;
+}
+
+.site-title {
+	padding: 25px 0 35px 0;
+	font-size: rem(144px);
+	font-kerning: normal;
+
+	@include breakpoint('small') {
+		font-size: 18.66667vw; // (70 / 375) * 100
+	}
+}
+
+#side-bar {
+	display: block;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	width: 15px;
+	height: 100%;
+	background-color: rgba(0,0,0,.2);
+}
+
+// #parking-icon {
+// 	position: fixed;
+// 	right: 3px;
+// 	top: 15px;
+// 	z-index: 5;
+// 	display: inline-block;
+// 	width: rem(50px);
+// 	height: rem(50px);
+// 	background-color: #FFFFFF;
+// 	border: 5px solid #000000;
+// 	border-radius: 50%;
+
+// 	&::after {
+// 		content: 'P';
+// 		position: absolute;
+// 		top: 0;
+// 		right: 0;
+// 		bottom: 0;
+// 		left: 0;
+// 		margin: auto;
+// 		font-size: rem(34px);
+// 		font-weight: $bold;
+// 		text-align: center;
+// 	}
+// }

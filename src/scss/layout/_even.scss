@@ -1,0 +1,14 @@
+.even-side {
+	& #content {
+		background-color: #0083CF;
+	}
+
+	& #side-bar {
+		left: auto;
+		right: 0;
+	}
+
+	& .title-left {
+		opacity: .15;
+	}
+}

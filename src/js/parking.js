@@ -65,5 +65,5 @@ else if (Calender.evenDay(today) && today.getHours() < 18) {
 	Park.onOdd = true;
 }
 else {
-	info.textContent = 'Error!'
+	errorMessage();
 }

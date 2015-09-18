@@ -3,13 +3,35 @@
 <head>
 	<title>Odd/Even</title>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='https://fonts.googleapis.com/css?family=Rubik:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+	<div id="content">
+		<div id="side-bar"></div>
+		<section id="main">
+			<h1 class="site-title">
+				<span class="title-left">odd</span><span class="title-right">even</span>
+			</h1>
 
-	<div id="date"></div>
-	<div id="info"></div>
+			<p class="explanation-time">
+				It’s <span id="current-date"></span> <span id="time-frame">before</span> 6pm.
+			</p>
 
+			<p class="explanation-fools">
+				Two odd days in a row, <span class="happy-fool">Happy Fool’s day!</span> You don’t need to move your car.
+			</p>
+
+			<p class="explanation-side">
+				You should be parked on the <span id="parking-side"></span> side of the street.
+			</p>
+		</section>
+		<div id="parking-icon"></div>
+	</div>
+
+	<script src="src/js/error.js"></script>
 	<script src="src/js/parking.js"></script>
 	<script src="src/js/visual.js"></script>
 </body>

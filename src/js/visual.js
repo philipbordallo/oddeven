@@ -1,20 +1,21 @@
-var date = document.getElementById('date');
-var info = document.getElementById('info');
+var body = document.body;
+var currentDate = document.getElementById('current-date');
+var parkingSide = document.getElementById('parking-side');
 
-// Show the data!
-date.textContent = 'Today is ' + Calender.monthName() + ' ' + Calender.dayName();
+currentDate.textContent = Calender.monthName() + ' ' + Calender.dayName();
 
 if (Calender.foolsDay) {
-	info.textContent += 'Two odd days in a row, Happy Fool’s day! ';
-	info.textContent += 'You don’t need to move your car ';
+	body.classList.add('fools-day');
 }
 
 if (Park.onOdd) {
-	info.textContent += 'Odd Address Side';
+	body.classList.add('odd-side');
+	parkingSide.textContent = 'odd';
 }
 else if (Park.onEven) {
-	info.textContent += 'Even Address Side';
+	body.classList.add('even-side');
+	parkingSide.textContent = 'even';
 }
 else {
-	info.textContent = 'Error!'
+	errorMessage();
 }

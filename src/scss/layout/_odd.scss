@@ -1,0 +1,14 @@
+.odd-side {
+	& #content {
+		background-color: #F04B23;
+	}
+
+	& #side-bar {
+		left: 0;
+		right: auto;
+	}
+
+	& .title-right {
+		opacity: .15;
+	}
+}

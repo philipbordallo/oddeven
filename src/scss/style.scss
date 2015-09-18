@@ -1,12 +1,17 @@
 // Variables
-@import '_variables.scss';
+@import '_variables';
 
 // Defaults
 @import 'defaults/_breakpoints';
 @import 'defaults/_mixins';
 @import 'defaults/_normalize';
+@import 'defaults/_reset';
 
 // Layout
+@import 'layout/_site';
+@import 'layout/_odd';
+@import 'layout/_even';
+@import 'layout/_explanation';
 
 // Utilites
 @import 'defaults/_utilites';

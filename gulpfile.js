@@ -58,6 +58,9 @@
 				console.log(prefix + result + ' was ' + event.type);
 			});
 
+		// Watch html files for changes and reload
+		gulp.watch('**/*.html', browserSync.reload);
+
 		// Watch js files for changes and reload
 		gulp.watch('src/js/**', browserSync.reload);
 	});
