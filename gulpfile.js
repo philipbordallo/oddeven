@@ -40,11 +40,7 @@
 			'and_ff >= 38' // Android Firefox
 		]
 	};
-	var jsInput = [
-		'src/js/error.js',
-		'src/js/parking.js',
-		'src/js/visual.js'
-	];
+	var jsInput = require('./src/js/_files.json');
 	var jsOutput = 'assets/js/scripts.js';
 
 // DEVELOPMENT TASKS – `gulp`
