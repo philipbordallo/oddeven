@@ -1,14 +1,15 @@
 'use strict';
 
 // DEPENDENCIES
+	var browserSync = require('browser-sync').create();
 	var gulp = require('gulp');
 	var utility = require('gulp-util');
 	var sass = require('gulp-sass');
 	var sourceMaps =  require('gulp-sourcemaps');
-	var autoprefixer =  require('gulp-autoprefixer');
 	var uglify = require('gulp-uglify');
 	var concat = require('gulp-concat');
-	var browserSync = require('browser-sync').create();
+	var postcss =  require('gulp-postcss');
+	var autoprefixer =  require('autoprefixer');
 	var del = require('del');
 	var q = require('q');
 
@@ -27,21 +28,22 @@
 		compress: false,
 		mangle: false
 	};
-	var autoprefixerOptions = {
-		browser: [
-			'ie >= 9',
-			'ie_mob >= 10',
-			'firefox >= 31',
-			'chrome >= 35',
-			'safari >= 6.1', // OSX Lion
-			'ios_saf >= 7.0-7.1', // iOS Safari & Chrome
-			'android >= 4.1', // Jelly Bean
-			'and_chr >= 42', // Android Chrome
-			'and_ff >= 38' // Android Firefox
-		]
-	};
-	var jsInput = require('./src/js/_files.json');
-	var jsOutput = 'assets/js/scripts.js';
+	var browserList = [
+		'ie >= 9',
+		'ie_mob >= 10',
+		'firefox >= 31',
+		'chrome >= 35',
+		'safari >= 6.1', // OSX Lion
+		'ios_saf >= 7.0-7.1', // iOS Safari & Chrome
+		'android >= 4.1', // Jelly Bean
+		'and_chr >= 42', // Android Chrome
+		'and_ff >= 38' // Android Firefox
+	];
+	var postcssOptions = [
+		autoprefixer({
+			browsers: browserList
+		})
+	];
 
 // DEVELOPMENT TASKS – `gulp`
 	gulp.task('watch', function() {
@@ -71,19 +73,10 @@
 		gulp.src('src/scss/**/*.scss')
 			.pipe(sourceMaps.init())
 			.pipe(sass(sassOptions)).on('error', sass.logError)
-			.pipe(autoprefixer(autoprefixerOptions))
+			.pipe(postcss(postcssOptions))
 			.pipe(sourceMaps.write('./'))
 			.pipe(gulp.dest('assets/css/'))
 			.pipe(browserSync.stream());
 	});
 
 	gulp.task('default', ['server', 'sass']);
-
-// BUILD TASKS – `gulp build`
-	// Compile and uglify js
-	gulp.task('build', function() {
-		gulp.src(jsInput)
-			.pipe(concat(jsOutput))
-			.pipe(uglify(uglifyOptions))
-			.pipe(gulp.dest('./'))
-	});
