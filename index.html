@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Odd/Even</title>
+	<title>Odd/Even Parking</title>
 
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link href='https://fonts.googleapis.com/css?family=Rubik:400,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 	<div id="content">
-		<div id="side-bar"></div>
+		<aside id="side-bar"></aside>
 		<section id="main">
 			<h1 class="site-title">
 				<span class="title-left">odd</span><span class="title-right">even</span>
@@ -28,7 +29,21 @@
 				You should be parked on the <span id="parking-side"></span> side of the street.
 			</p>
 		</section>
-		<div id="parking-icon"></div>
+		<section id="about">
+			<h2 class="about-title">About This Site</h2>
+
+			<p class="about-paragraph">
+				This is a simple website to help you better understand which side of the street to be parked on in Syracuse, NY. The <a href="http://www.syrgov.net/" target="_blank">city of Syracuse</a> uses odd even parking, or <a href="https://en.wikipedia.org/wiki/Alternate-side_parking" target="_blank">alternative-side parking</a>, to make sure snowplows and street-sweepers have access on narrow roads.
+			</p>
+
+			<p class="about-paragraph">
+				For more information, visit Syracuse's <a href="http://www.syrgov.net/Parking_FAQs.aspx" target="_blank">Parking FAQ</a>.
+			</p>
+
+			<footer class="about-footer">
+				This website is unofficial and not related in any manner to the city governemnt of Syracuse, NY. If you find something wrong or have a suggestion, email <a href="mailto:info@oddeven.org">info@oddeven.org</a> or do a pull request on <a href="https://github.com/philipbordallo/oddeven">GitHub</a>.
+			</footer>
+		</section>
 	</div>
 
 	<script src="src/js/error.js"></script>

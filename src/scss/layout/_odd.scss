@@ -1,4 +1,9 @@
 .odd-side {
+	& a:link,
+	& a:visited {
+		color: #F04B23;
+	}
+
 	& #content {
 		background-color: #F04B23;
 	}

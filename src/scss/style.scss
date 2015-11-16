@@ -1,17 +1,17 @@
 // Variables
-@import '_variables';
+@import 'variables';
 
 // Defaults
-@import 'defaults/_breakpoints';
-@import 'defaults/_mixins';
-@import 'defaults/_normalize';
-@import 'defaults/_reset';
+@import 'defaults/breakpoints';
+@import 'defaults/mixins';
+@import 'defaults/normalize';
+@import 'defaults/reset';
 
 // Layout
-@import 'layout/_site';
-@import 'layout/_odd';
-@import 'layout/_even';
-@import 'layout/_explanation';
+@import 'layout/site';
+@import 'layout/odd';
+@import 'layout/even';
+@import 'layout/explanation';
 
 // Utilites
-@import 'defaults/_utilites';
+@import 'defaults/utilites';

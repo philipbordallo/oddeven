@@ -7,8 +7,17 @@
 }
 
 #main {
-	padding: 0 35px;
+	padding: 0 35px 75px 35px;
 	color: #FFFFFF;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .site-title {
@@ -31,28 +40,25 @@
 	background-color: rgba(0,0,0,.2);
 }
 
-// #parking-icon {
-// 	position: fixed;
-// 	right: 3px;
-// 	top: 15px;
-// 	z-index: 5;
-// 	display: inline-block;
-// 	width: rem(50px);
-// 	height: rem(50px);
-// 	background-color: #FFFFFF;
-// 	border: 5px solid #000000;
-// 	border-radius: 50%;
+#about {
+	position: relative;
+		z-index: 2;
+	padding: 20px 35px;
+	background-color: #FFFFFF;
+		font-size: rem(20px);
+		color: #343434;
+		line-height: 1.4
+}
 
-// 	&::after {
-// 		content: 'P';
-// 		position: absolute;
-// 		top: 0;
-// 		right: 0;
-// 		bottom: 0;
-// 		left: 0;
-// 		margin: auto;
-// 		font-size: rem(34px);
-// 		font-weight: $bold;
-// 		text-align: center;
-// 	}
-// }
+.about-title {
+	font-size: rem(24px);
+	text-transform: uppercase;
+}
+
+.about-paragraph {
+	margin: 1em 0;
+}
+
+.about-footer {
+	font-size: rem(18px);
+}
