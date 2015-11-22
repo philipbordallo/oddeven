@@ -22,7 +22,13 @@
 		server: './',
 		open: false,
 		notify: false,
-		logPrefix: ' server '
+		logPrefix: ' server ',
+		rewriteRules: [{
+			match: /www.google-analytics.com\/analytics.js/g,
+			fn: function (match) {
+				return '';
+			}
+		}]
 	};
 	var uglifyOptions = {
 		compress: false,
