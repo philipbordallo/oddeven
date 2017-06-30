@@ -1,88 +1,123 @@
 'use strict';
 
 // DEPENDENCIES
-	var browserSync = require('browser-sync').create();
-	var gulp = require('gulp');
-	var utility = require('gulp-util');
-	var sass = require('gulp-sass');
-	var sourceMaps =  require('gulp-sourcemaps');
-	var uglify = require('gulp-uglify');
-	var concat = require('gulp-concat');
-	var postcss =  require('gulp-postcss');
-	var autoprefixer =  require('autoprefixer');
-	var del = require('del');
-	var q = require('q');
+const browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const utility = require('gulp-util');
+const sass = require('gulp-sass');
+const sourceMaps =  require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const checkIf = require('gulp-if');
+const concat = require('gulp-concat');
+const postcss =  require('gulp-postcss');
+const autoprefixer =  require('autoprefixer');
+const fs = require('fs');
+
+const ENV = process.env.NODE_ENV;
 
 // CONFIGS
-	var sassOptions = {
-		outputStyle: 'compressed',
-		includePaths: 'src/scss/'
-	};
-	var browserSyncOptions = {
-		server: './',
-		open: false,
-		notify: false,
-		logPrefix: ' server ',
-		rewriteRules: [{
-			match: /www.google-analytics.com\/analytics.js/g,
-			fn: function (match) {
-				return '';
-			}
-		}]
-	};
-	var uglifyOptions = {
-		compress: false,
-		mangle: false
-	};
-	var browserList = [
-		'ie >= 9',
-		'ie_mob >= 10',
-		'firefox >= 31',
-		'chrome >= 35',
-		'safari >= 6.1', // OSX Lion
-		'ios_saf >= 7.0-7.1', // iOS Safari & Chrome
-		'android >= 4.1', // Jelly Bean
-		'and_chr >= 42', // Android Chrome
-		'and_ff >= 38' // Android Firefox
-	];
-	var postcssOptions = [
-		autoprefixer({
-			browsers: browserList
-		})
-	];
+const SCRIPTS = [
+	'src/js/vendor/classlist.min.js',
+	'src/js/errors.js',
+	'src/js/date.js',
+	'src/js/parking.js',
+	'src/js/visual.js',
+];
+const REWRITE_RULES = {
+	googleAnalytics: {
+		match: /www.google-analytics.com\/analytics.js/g,
+		fn: function() { return '' }
+	},
+	jsBundle: {
+		match: /<!-- bundle -->([\s\S]*?)<!-- \/bundle -->/gmi,
+		fn: function() {
+			let scriptString = '';
 
-// DEVELOPMENT TASKS – `gulp`
-	gulp.task('watch', function() {
-
-		// Watch scss files for changes, sass it up, and report
-		gulp.watch('src/scss/**/*.scss', ['sass'])
-			.on('change', function(event) {
-				var reg = new RegExp(__dirname, 'g');
-				var result = utility.colors.green(event.path.replace(reg, ''));
-				var prefix = '[' + utility.colors.blue('nodesass') + '] ';
-				console.log(prefix + result + ' was ' + event.type);
+			SCRIPTS.forEach(item => {
+				scriptString += `<script src='${item}'></script>`
 			});
 
-		// Watch html files for changes and reload
-		gulp.watch('**/*.html', browserSync.reload);
+			return scriptString;
+		}
+	}
+};
+const OPTIONS = {
+	sass: {
+		outputStyle: 'compressed',
+		includePaths: 'src/scss/'
+	},
+	browserSync: {
+		production: {
+			server: './',
+			open: false,
+			notify: false,
+			logConnections: true,
+			logPrefix: ' server ',
+		},
+		development: {
+			server: './',
+			open: false,
+			notify: false,
+			logPrefix: ' server ',
+			rewriteRules: [
+				REWRITE_RULES.googleAnalytics,
+				REWRITE_RULES.jsBundle
+			]
+		}
+	},
+	uglify: {
+		compress: false,
+		mangle: false
+	},
+	postcss: [
+		autoprefixer()
+	]
+};
 
-		// Watch js files for changes and reload
-		gulp.watch('src/js/**', browserSync.reload);
-	});
+// DEVELOPMENT TASKS – `gulp`
+gulp.task('watch', () => {
+	// Watch scss files for changes, sass it up, and report
+	gulp.watch('src/scss/**/*.scss', ['sass'])
+		.on('change', (event) => {
+			const reg = new RegExp(__dirname, 'g');
+			const result = utility.colors.green(event.path.replace(reg, ''));
+			const prefix = `[${utility.colors.blue('nodesass')}] `;
 
-	// Start `browser-sync` server
-	gulp.task('server', ['watch'], function() {
-		browserSync.init(browserSyncOptions);
-	});
+			console.log(`${prefix} ${result} was ${event.type}`);
+		});
 
-	gulp.task('sass', function() {
-		gulp.src('src/scss/**/*.scss')
-			.pipe(sourceMaps.init())
-			.pipe(sass(sassOptions)).on('error', sass.logError)
-			.pipe(postcss(postcssOptions))
-			.pipe(sourceMaps.write('./'))
-			.pipe(gulp.dest('assets/css/'))
-			.pipe(browserSync.stream());
-	});
+	// Watch html files for changes and reload
+	gulp.watch('**/*.html', browserSync.reload);
 
-	gulp.task('default', ['server', 'sass']);
+	// Watch js files for changes and reload
+	gulp.watch('src/js/**', browserSync.reload);
+});
+
+// Start `browser-sync` server
+gulp.task('server', ['watch'], () => {
+	browserSync.init(OPTIONS.browserSync[ENV]);
+});
+
+gulp.task('sass', () => {
+	return gulp.src('src/scss/**/*.scss')
+		.pipe(sourceMaps.init())
+		.pipe(sass(OPTIONS.sass)).on('error', sass.logError)
+		.pipe(postcss(OPTIONS.postcss))
+		.pipe(checkIf(ENV === 'development', sourceMaps.write('./')))
+		.pipe(gulp.dest('assets/css/'))
+		.pipe(browserSync.stream());
+});
+
+gulp.task('default', ['server', 'sass']);
+
+// Compile and uglify js
+gulp.task('js', () => {
+	return gulp.src(SCRIPTS)
+		.pipe(concat('bundle.js'))
+		.pipe(uglify(OPTIONS.uglify))
+		.pipe(gulp.dest('assets/js/'))
+});
+
+// BUILD TASK - `build`
+gulp.task('build', ['sass', 'js'])
+

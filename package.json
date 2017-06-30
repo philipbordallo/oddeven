@@ -1,20 +1,35 @@
 {
+  "name": "oddeven",
+  "version": "1.0.0",
+  "private": true,
+  "description": "a simple website to help you better understand which side of the street to be parked on in Syracuse, NY",
+  "homepage": "http://oddeven.org",
+  "scripts": {
+    "start": "NODE_ENV=development gulp",
+    "build": "NODE_ENV=production gulp build",
+    "production": "npm run build && NODE_ENV=production gulp"
+  },
+  "browserslist": [
+    "ie >= 9",
+    "ie_mob >= 10",
+    "firefox >= 31",
+    "chrome >= 35",
+    "safari >= 6.1",
+    "ios_saf >= 7.0",
+    "android >= 4.1",
+    "and_chr >= 42",
+    "and_ff >= 38"
+  ],
   "devDependencies": {
-    "autoprefixer": "^6.1.0",
+    "autoprefixer": "^7.1.1",
     "browser-sync": "^2.9.1",
-    "del": "^2.0.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
-    "gulp-postcss": "^6.0.1",
-    "gulp-sass": "^2.0.4",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.4.0",
-    "gulp-util": "^3.0.6",
-    "q": "^1.4.1"
-  },
-  "private": true,
-  "scripts": {
-    "dev": "gulp",
-    "build": "gulp build && git status"
+    "gulp-if": "^2.0.2",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.6"
   }
 }
