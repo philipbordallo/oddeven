@@ -9,11 +9,11 @@ if (today.foolsDay) {
 	document.body.classList.add('fools-day');
 }
 
-if (Parking.onOdd) {
+if (parking.onOdd) {
 	document.body.classList.add('odd-side');
 	parkingSide.textContent = 'odd';
 }
-else if (Parking.onEven) {
+else if (parking.onEven) {
 	document.body.classList.add('even-side');
 	parkingSide.textContent = 'even';
 }

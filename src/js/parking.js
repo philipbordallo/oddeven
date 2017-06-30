@@ -1,4 +1,4 @@
-var Parking = {
+var parking = {
 	onOdd: false,
 	onEven: false
 };
@@ -15,21 +15,21 @@ if (today.oddDay() && yesterday.oddDay()) {
 
 // Find out which side of the street to park on
 if (today.oddDay() && today.getHours() >= 18) {
-	Parking.onOdd = true;
+	parking.onOdd = true;
 }
 else if (today.oddDay() && today.getHours() < 18) {
 	if (today.foolsDay) {
-		Parking.onOdd = true;
+		parking.onOdd = true;
 	}
 	else {
-		Parking.onEven = true;
+		parking.onEven = true;
 	}
 }
 else if (today.evenDay() && today.getHours() >= 18) {
-	Parking.onEven = true;
+	parking.onEven = true;
 }
 else if (today.evenDay() && today.getHours() < 18) {
-	Parking.onOdd = true;
+	parking.onOdd = true;
 }
 else {
 	errorMessage();
