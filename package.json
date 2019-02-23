@@ -1,35 +1,20 @@
 {
   "name": "oddeven",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "Which side to park on",
+  "author": "Philip Bordallo",
   "private": true,
-  "description": "a simple website to help you better understand which side of the street to be parked on in Syracuse, NY",
-  "homepage": "http://oddeven.org",
   "scripts": {
-    "start": "NODE_ENV=development gulp",
-    "build": "NODE_ENV=production gulp build",
-    "production": "npm run build && NODE_ENV=production gulp"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "browserslist": [
-    "ie >= 9",
-    "ie_mob >= 10",
-    "firefox >= 31",
-    "chrome >= 35",
-    "safari >= 6.1",
-    "ios_saf >= 7.0",
-    "android >= 4.1",
-    "and_chr >= 42",
-    "and_ff >= 38"
-  ],
-  "devDependencies": {
-    "autoprefixer": "^7.1.1",
-    "browser-sync": "^2.9.1",
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-if": "^2.0.2",
-    "gulp-postcss": "^7.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.6"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philipbordallo/oddeven.git"
+  },
+  "bugs": {
+    "url": "https://github.com/philipbordallo/oddeven/issues"
+  },
+  "homepage": "https://oddeven.org",
+  "devDependencies": {},
+  "dependencies": {}
 }

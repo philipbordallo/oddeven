@@ -1,5 +1,0 @@
-@function rem($fontsize) {
-	$size: ($fontsize / 1px) * 1rem;
-	$value: $body-font / 1px;
-	@return ($size / $value);
-}

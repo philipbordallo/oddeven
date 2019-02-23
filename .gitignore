@@ -3,5 +3,3 @@
 node_modules/
 workfiles/
 
-*.css.map
-npm-debug.log
