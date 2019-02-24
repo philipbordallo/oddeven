@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="{{ description }}">
+
+  <title>{{ title }}</title>
+
+  <meta name="format-detection" content="telephone=no">
+
+  {{#each stylesheet}}
+    <link rel="stylesheet" type="text/css" href="{{ this }}">
+  {{/each}}
+</head>
+<body>
+  <main>
+
+    <p>
+      time-frame: <span id="time-frame"></span>
+    </p>
+
+    <p>
+      current-date: <span id="current-date"></span>
+    </p>
+    <p>
+      parking-side: <span id="parking-side"></span>
+    </p>
+  </main>
+
+  {{#each script}}
+    <script src="{{ this }}"></script>
+  {{/each}}
+</body>
+</html>
