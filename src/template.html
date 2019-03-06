@@ -9,23 +9,53 @@
 
   <meta name="format-detection" content="telephone=no">
 
+  {{#analytics}}
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', '{{ gaID }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+  {{/analytics}}
+
+  <link href="https://fonts.googleapis.com/css?family=Rubik|Rubik+Mono+One" rel="stylesheet">
   {{#each stylesheet}}
     <link rel="stylesheet" type="text/css" href="{{ this }}">
   {{/each}}
 </head>
 <body>
-  <main>
+  <noscript>
+    <div class="oddeven-notification">
+      This site needs JavaScript to work correctly.
+    </div>
+  </noscript>
+  <main class="oddeven-container">
+    <h1 class="oddeven-h1">
+      <div class="oddeven-h1-name" id="parking-side"></div>
+      <div class="oddeven-h1-side">Side</div>
+    </h1>
 
-    <p>
-      time-frame: <span id="time-frame"></span>
+    <p class="oddeven-description">
+      <span id="time-frame"></span> 6pm <br> on <span id="current-date"></span>
     </p>
 
-    <p>
-      current-date: <span id="current-date"></span>
-    </p>
-    <p>
-      parking-side: <span id="parking-side"></span>
-    </p>
+    <h2 class="oddeven-h2">
+      About
+    </h2>
+
+    <div class="oddeven-about">
+      <p class="oddeven-paragraph">
+        A simple website to help you better understand which side of the street to be parked on in Syracuse, NY. The <a href="http://www.syrgov.net/">city of Syracuse</a> uses odd even parking, or <a href="https://en.wikipedia.org/wiki/Alternate-side_parking">alternative-side parking</a>, to make sure snowplows and street-sweepers have access on narrow roads.
+      </p>
+      <p class="oddeven-paragraph">
+        <span id="parking-info-side"></span> side parking means you should be on the side of the street with addresses like <span id="parking-info-address"></span>. For more information, visit <a href="http://www.syrgov.net/Parking_FAQs.aspx">Syracuse's Parking FAQ</a>.
+      </p>
+      <footer class="oddeven-footer">
+        <p class="oddeven-paragraph">
+          This website is unofficial and not related in any manner to the city government of Syracuse, NY. If you find something wrong or have a suggestion, email <a href="mailto:info@oddeven.org">info@oddeven.org</a> or do a pull request on <a href="https://github.com/philipbordallo/oddeven">GitHub</a>.
+        </p>
+      </footer>
+    </div>
   </main>
 
   {{#each script}}

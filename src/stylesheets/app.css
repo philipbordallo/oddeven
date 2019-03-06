@@ -1,0 +1,83 @@
+html {
+  color: $COLOR_DEFAULT_BLACK;
+  background-color: $COLOR_DEFAULT_WHITE;
+  min-width: 320px;
+  font-family: $FONT_FAMILY_CONTENT;
+}
+
+.oddeven-notification {
+  background-color: hsla(0, 0%, 100%, 0.8);
+  padding: 1rem;
+}
+
+.oddeven-container {
+  padding: 1rem 1rem 2.5rem;
+}
+
+.odd-side {
+  background-color: $COLOR_BRAND_ORANGE;
+}
+
+.even-side {
+  background-color: $COLOR_BRAND_BLUE;
+}
+
+.oddeven-h1 {
+  color: $COLOR_DEFAULT_WHITE;
+  font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+.oddeven-h1-name {
+  font-family: $FONT_FAMILY_HEADING;
+  font-size: 5rem;
+  line-height: 1;
+  order: 2;
+
+  @media (width > $BREAKPOINT_SMALL) {
+    font-size: 9rem;
+  }
+}
+
+.oddeven-h1-side {
+  line-height: 1;
+  text-transform: lowercase;
+  padding-left: .375rem;
+  font-size: 1.125rem;
+  order: 1;
+}
+
+.oddeven-h2 {
+  font-family: $FONT_FAMILY_HEADING;
+  font-size: 1.25rem;
+  margin-bottom: .625rem;
+  line-height: 1;
+}
+
+.oddeven-description {
+  margin: 1em 0 2.5em;
+  font-family: $FONT_FAMILY_HEADING;
+  font-size: 2.25rem;
+}
+
+.oddeven-paragraph {
+  line-height: 1.5;
+  font-size: 1.25rem;
+}
+
+.oddeven-about {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  gap: 2rem;
+
+  @media (width < $BREAKPOINT_SMALL) {
+    grid-template-columns: auto;
+  }
+}
+
+.oddeven-footer .oddeven-paragraph {
+  @media (width < $BREAKPOINT_SMALL) {
+    font-size: 1rem;
+  }
+}

@@ -19,9 +19,8 @@ const LOADER = {
   css: {
     loader: 'css-loader',
     options: {
-      modules: true,
+      modules: false,
       importLoaders: 1,
-      localIdentName: '[folder]__[local]__[hash:base64:5]',
     },
   },
   eslint: {
