@@ -1,7 +1,7 @@
 .DS_Store
 
+.ssl/
+dist/
 node_modules/
 workfiles/
 
-*.css.map
-npm-debug.log
