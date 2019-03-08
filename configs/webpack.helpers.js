@@ -8,8 +8,25 @@ const plugins = require('./postcss.plugins');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
+const REQUIRED_ENV = [
+  'NODE_ENV',
+  'GA_ID',
+  'SSL_KEY',
+  'SSL_CERT',
+  'SSL_CA',
+  'ALLOWED_HOSTS',
+  'PORT',
+];
+
+REQUIRED_ENV.forEach((ENV) => {
+  if (!process.env[ENV]) {
+    throw new Error(`${ENV} env has not been defined`);
+  }
+});
+
 const DEFINE_ENV = {
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+  'process.env.GA_ID': JSON.stringify(process.env.GA_ID),
 };
 
 const LOADER = {
