@@ -11,12 +11,12 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 const REQUIRED_ENV = [
   'NODE_ENV',
   'GA_ID',
-  'SSL_KEY',
-  'SSL_CERT',
-  'SSL_CA',
-  'ALLOWED_HOSTS',
-  'PORT',
-];
+  isDevelopment && 'SSL_KEY',
+  isDevelopment && 'SSL_CERT',
+  isDevelopment && 'SSL_CA',
+  isDevelopment && 'ALLOWED_HOSTS',
+  isDevelopment && 'PORT',
+].filter(Boolean);
 
 REQUIRED_ENV.forEach((ENV) => {
   if (!process.env[ENV]) {
