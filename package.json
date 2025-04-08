@@ -14,8 +14,6 @@
   "homepage": "https://oddeven.org",
   "scripts": {},
   "babel": {},
-  "devDependencies": {
-    "serve": "^14.2.4"
-  },
+  "devDependencies": {},
   "dependencies": {}
 }
