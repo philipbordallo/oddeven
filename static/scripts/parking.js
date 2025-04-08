@@ -1,4 +1,4 @@
-class Parking {
+export class Parking {
   constructor() {
     this.currentSide = '';
     this.examples = [];
@@ -18,5 +18,3 @@ class Parking {
     return this.currentSide;
   }
 }
-
-export default Parking;

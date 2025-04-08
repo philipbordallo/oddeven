@@ -1,12 +1,42 @@
-import App from './scripts/App';
+import { Parking } from './parking.js';
+import { OddEvenDate } from './odd-even-date.js';
 
-import 'stylesheets/base';
-import 'stylesheets/app';
+function setupData() {
+  const parking = new Parking();
 
+  const today = new OddEvenDate();
+  const yesterday = new OddEvenDate(today.getTime());
 
-function handleDOMContentLoaded() {
-  const { parking, today } = App();
+  yesterday.setDate(today.getDate() - 1);
 
+  // Determine if `today` is a Fool's Day (odd day preceded by a odd day)
+  if (today.isOddDay() && yesterday.isOddDay()) {
+    today.setFoolsDay();
+  }
+
+  const isOrAfterSwitch = today.getHours() >= OddEvenDate.SWITCH_TIME;
+  const isBeforeSwitch = today.getHours() < OddEvenDate.SWITCH_TIME;
+
+  // Find out which side of the street to park on
+  if (
+    (today.isOddDay() && isOrAfterSwitch)
+    || (today.isFoolsDay() && isBeforeSwitch)
+    || (today.isEvenDay() && isBeforeSwitch)
+  ) {
+    parking.setOdd();
+  }
+  else {
+    parking.setEven();
+  }
+
+  return {
+    parking,
+    today,
+  };
+}
+
+function render(data) {
+  const { parking, today } = data;
   const currentSide = parking.getSide();
 
   const timeFrameElement = document.getElementById('time-frame');
@@ -31,12 +61,10 @@ function handleDOMContentLoaded() {
   }
 
   if (parkingInfoSideElement) {
-    const capitalSide = `${currentSide.charAt(0).toUpperCase()}${currentSide.slice(1)}`;
-    parkingInfoSideElement.textContent = capitalSide;
+    parkingInfoSideElement.textContent = currentSide;
   }
 
   if (parkingInfoAddressElement) {
-    // eslint-disable-next-line max-params
     const address = parking.examples.reduce((acc, item, index, array) => {
       if (index === array.length - 1) {
         return acc.concat(`or ${item}`);
@@ -50,6 +78,12 @@ function handleDOMContentLoaded() {
   if (today.isFoolsDay()) {
     document.body.classList.add('fools-day');
   }
+}
+
+function handleDOMContentLoaded() {
+  const data = setupData();
+
+  render(data);
 }
 
 document.addEventListener('DOMContentLoaded', handleDOMContentLoaded);

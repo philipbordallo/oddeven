@@ -1,7 +1,3 @@
 .DS_Store
 
-.ssl/
-dist/
 node_modules/
-workfiles/
-

@@ -1,0 +1,125 @@
+:root {
+  --color-brand-orange: #F75231;
+  --color-brand-blue: #3369ff;
+  --color-default-black: black;
+  --color-default-white: white;
+}
+
+:root {
+  --font-family-heading: "Rubik Mono One", system-ui, sans-serif;
+  --font-family-content: Rubik, system-ui, sans-serif, color-emoji;
+}
+
+:root {
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+}
+
+html {
+  color: var(--color-default-black);
+  background-color: var(--color-default-white);
+  min-width: 320px;
+  font-family: var(--font-family-content);
+}
+
+.oddeven-notification {
+  padding: var(--spacing-md);
+}
+
+.oddeven-container {
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
+  display: grid;
+  grid-template-columns: 1fr 192px;
+  gap: var(--spacing-lg);
+  max-width: 1280px;
+}
+
+@media (max-width: 640px) {
+  .oddeven-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.odd-side {
+  background-color: var(--color-brand-orange);
+}
+
+.even-side {
+  background-color: var(--color-brand-blue);
+}
+
+.oddeven-h1 {
+  color: var(--color-default-white);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .oddeven-h1 {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.oddeven-h1-name {
+  font-family: var(--font-family-heading);
+  font-size: 12rem;
+  line-height: 1;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@media (max-width: 640px) {
+  .oddeven-h1-name {
+    font-size: 6rem;
+    writing-mode: unset;
+    text-orientation: unset;
+  }
+}
+
+.oddeven-h1-side {
+  line-height: 1;
+  text-transform: lowercase;
+  padding-left: 2.25rem;
+  font-size: 1.125rem;
+}
+
+@media (max-width: 640px) {
+  .oddeven-h1-side {
+    padding-left: .5rem;
+    padding-bottom: var(--spacing-md);
+    font-size: 1rem;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+}
+
+.oddeven-h2 {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin-bottom: .625rem;
+  line-height: 1;
+}
+
+.oddeven-description {
+  margin: 0 0 .5em;
+  font-size: 2.5rem;
+}
+
+.oddeven-strong {
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.oddeven-paragraph {
+  line-height: 1.5;
+  font-size: 1.25rem;
+}
+
+.oddeven-about {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  gap: var(--spacing-lg);
+}
