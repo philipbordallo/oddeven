@@ -46,7 +46,7 @@ function render(data) {
   const parkingInfoSideElement = document.getElementById('parking-info-side');
   const parkingInfoAddressElement = document.getElementById('parking-info-address');
 
-  document.body.classList.add(`${currentSide}-side`);
+  document.documentElement.classList.add(`${currentSide}-side`);
 
   if (timeFrameElement) {
     timeFrameElement.textContent = today.relationToSix();
