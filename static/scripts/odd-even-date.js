@@ -1,4 +1,4 @@
-class OddEvenDate extends Date {
+export class OddEvenDate extends Date {
   constructor(...args) {
     super(...args);
 
@@ -76,5 +76,3 @@ OddEvenDate.MONTH_NAMES = [
   'November',
   'December',
 ];
-
-export default OddEvenDate;

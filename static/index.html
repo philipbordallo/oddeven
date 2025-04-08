@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Odd/Even Parking in Syracuse, NY</title>
+  <meta name="description"
+    content="A simple website to help you better understand which side of the street to be parked on in Syracuse, NY. The city of Syracuse uses odd/even parking, or alternative-side parking, to make sure snowplows and street-sweepers have access on narrow roads.">
+  <meta name="format-detection" content="telephone=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Rubik|Rubik+Mono+One" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./styles/base.css">
+  <link rel="stylesheet" type="text/css" href="./styles/app.css">
+</head>
+
+<body>
+  <noscript>
+    <div class="oddeven-notification">
+      This site needs JavaScript to work correctly.
+    </div>
+  </noscript>
+  <main class="oddeven-container">
+    <div>
+      <p class="oddeven-description">
+        It's <span class="oddeven-strong" id="time-frame">before</span>
+        <time class="oddeven-strong" datetime="18:00">6pm</time> on
+        <span id="current-date" class="oddeven-strong">April 1st</span>,
+        you should be parked on the <span id="parking-info-side" class="oddeven-strong">even</span> side of the street.
+      </p>
+
+      <p class="oddeven-description">
+        That means on the side with addresses like
+        <span id="parking-info-address" class="oddeven-strong">1234</span>.
+      </p>
+    </div>
+
+    <h1 class="oddeven-h1">
+      <div class="oddeven-h1-name" id="parking-side"></div>
+      <div class="oddeven-h1-side">Side</div>
+    </h1>
+
+    <div>
+      <h2 class="oddeven-h2">
+        About
+      </h2>
+
+      <div class="oddeven-about">
+
+        <p class="oddeven-paragraph">
+          A simple website to help you better understand which side of the street to be parked on in Syracuse, NY.
+        </p>
+        <p class="oddeven-paragraph">
+          <a href="https://www.syr.gov/">Syracuse</a> uses odd even parking, or <a
+            href="https://en.wikipedia.org/wiki/Alternate-side_parking">alternative-side parking</a>, to make sure
+          snowplows and street-sweepers have access on narrow roads.
+        </p>
+
+        <p class="oddeven-paragraph">
+          This website is unofficial and not related in any manner to the <a href="https://www.syr.gov">city government
+            of Syracuse</a>. For
+          more information, visit <a href="https://www.syr.gov/Departments/PVB/Parking-Rules">Syracuse's Parking Rules
+            page</a>.
+        </p>
+        <footer class="oddeven-footer">
+          <p class="oddeven-paragraph">
+            If you find
+            something wrong or have a suggestion, email <a href="mailto:info@oddeven.org">info@oddeven.org</a> or do a
+            pull request on <a href="https://github.com/philipbordallo/oddeven">GitHub</a>.
+          </p>
+          </p>
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./scripts/app.js"></script>
+</body>
+
+</html>
